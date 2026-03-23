@@ -133,11 +133,17 @@ export default function BlogPage() {
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  {post.id === 2 ? (
+                    <div className="w-full h-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                      <MessageCircle size={64} className="text-white relative z-10" />
+                    </div>
+                  ) : (
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute top-4 left-4 z-20">
                     <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md border border-white/20 text-white">
                       {post.category}
