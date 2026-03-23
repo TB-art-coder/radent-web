@@ -67,7 +67,7 @@ const orbitalData = [
   },
   {
     id: 4,
-    title: "n8n Otomasyon",
+    title: "Tam Otomasyon",
     date: "No-Code",
     content:
       "Randevu hatırlatmaları, anket gönderimi ve CRM senkronizasyonu için 500+ entegrasyon ile güçlü iş akışları.",
@@ -135,7 +135,7 @@ const features = [
     icon: RefreshCw,
     color: "from-purple-500 to-violet-600",
     glow: "rgba(168,85,247,0.2)",
-    title: "n8n ile Tam Otomasyon",
+    title: "Tam Otomasyon",
     desc: "Randevu hatırlatması, anket, SMS ve daha fazlası için görsel iş akışlarıyla kliniğinizin tüm süreçlerini otomatize edin.",
     points: [
       "500+ uygulama entegrasyonu",
@@ -278,7 +278,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            WhatsApp randevu botu, Google Takvim entegrasyonu ve n8n otomasyon akışlarıyla
+            WhatsApp randevu botu, Google Takvim entegrasyonu ve tam otomasyon akışlarıyla
             kliniğiniz 7/24 çalışır. Personel maliyetinizi düşürün, hasta memnuniyetini artırın.
           </p>
 
@@ -719,7 +719,7 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold text-sm mb-4">Ürün</h4>
               <ul className="space-y-2 text-sm text-white/40">
-                {["WhatsApp Botu", "Google Takvim", "n8n Otomasyon", "Analitik Panel"].map((item) => (
+                {["WhatsApp Botu", "Google Takvim", "Tam Otomasyon", "Analitik Panel"].map((item) => (
                   <li key={item}><a href="#" className="hover:text-white/70 transition-colors">{item}</a></li>
                 ))}
               </ul>

@@ -269,19 +269,19 @@ export default function RadialOrbitalTimeline({
                   absolute top-12 whitespace-nowrap
                   text-xs font-semibold tracking-wider
                   transition-all duration-300
-                  ${isExpanded ? "text-white scale-125" : "text-white/70"}
+                  ${isExpanded ? "text-white scale-125" : "text-white/90"}
                 `}
                                 >
                                     {item.title}
                                 </div>
 
                                 {isExpanded && (
-                                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10 overflow-visible">
-                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50"></div>
-                                        <CardHeader className="pb-2">
-                                            <div className="flex justify-between items-center">
+                                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-black/95 backdrop-blur-xl border border-white/40 shadow-2xl shadow-white/20 overflow-visible z-50">
+                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/80"></div>
+                                        <CardHeader className="pb-2 pt-5">
+                                            <div className="flex justify-between items-center mb-1">
                                                 <Badge
-                                                    className={`px-2 text-xs ${getStatusStyles(
+                                                    className={`px-2 text-xs font-bold ${getStatusStyles(
                                                         item.status
                                                     )}`}
                                                 >
@@ -291,42 +291,42 @@ export default function RadialOrbitalTimeline({
                                                             ? "DEVAM EDİYOR"
                                                             : "BEKLEMEDE"}
                                                 </Badge>
-                                                <span className="text-xs font-mono text-white/50">
+                                                <span className="text-xs font-mono text-white/90 font-medium tracking-wide">
                                                     {item.date}
                                                 </span>
                                             </div>
-                                            <CardTitle className="text-sm mt-2 text-white">
+                                            <CardTitle className="text-base mt-2 text-white font-bold tracking-wide">
                                                 {item.title}
                                             </CardTitle>
                                         </CardHeader>
-                                        <CardContent className="text-xs text-white/80">
+                                        <CardContent className="text-sm text-white/95 leading-relaxed font-medium">
                                             <p>{item.content}</p>
 
-                                            <div className="mt-4 pt-3 border-t border-white/10">
-                                                <div className="flex justify-between items-center text-xs mb-1">
-                                                    <span className="flex items-center text-white/70">
-                                                        <Zap size={10} className="mr-1" />
+                                            <div className="mt-5 pt-4 border-t border-white/20">
+                                                <div className="flex justify-between items-center text-xs mb-1.5">
+                                                    <span className="flex items-center text-white/90 font-bold">
+                                                        <Zap size={14} className="mr-1.5 text-yellow-400" />
                                                         Etki Puanı
                                                     </span>
-                                                    <span className="font-mono text-white">{item.energy}%</span>
+                                                    <span className="font-mono text-white font-bold">{item.energy}%</span>
                                                 </div>
-                                                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                                <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
                                                     <div
-                                                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                                                        className="h-full bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400"
                                                         style={{ width: `${item.energy}%` }}
                                                     ></div>
                                                 </div>
                                             </div>
 
                                             {item.relatedIds.length > 0 && (
-                                                <div className="mt-4 pt-3 border-t border-white/10">
-                                                    <div className="flex items-center mb-2">
-                                                        <Link size={10} className="text-white/70 mr-1" />
-                                                        <h4 className="text-xs uppercase tracking-wider font-medium text-white/70">
+                                                <div className="mt-5 pt-4 border-t border-white/20">
+                                                    <div className="flex items-center mb-3">
+                                                        <Link size={12} className="text-white/90 mr-1.5" />
+                                                        <h4 className="text-xs uppercase tracking-wider font-bold text-white/90">
                                                             Bağlı Özellikler
                                                         </h4>
                                                     </div>
-                                                    <div className="flex flex-wrap gap-1">
+                                                    <div className="flex flex-wrap gap-2">
                                                         {item.relatedIds.map((relatedId) => {
                                                             const relatedItem = timelineData.find(
                                                                 (i) => i.id === relatedId
@@ -336,7 +336,7 @@ export default function RadialOrbitalTimeline({
                                                                     key={relatedId}
                                                                     variant="outline"
                                                                     size="sm"
-                                                                    className="flex items-center h-6 px-2 py-0 text-xs rounded-none border-white/20 bg-transparent hover:bg-white/10 text-white/80 hover:text-white transition-all"
+                                                                    className="flex items-center h-7 px-3 py-0 text-xs rounded bg-white/10 hover:bg-white/20 border-white/30 text-white hover:text-white transition-all font-bold"
                                                                     onClick={(e) => {
                                                                         e.stopPropagation();
                                                                         toggleItem(relatedId);
@@ -344,8 +344,8 @@ export default function RadialOrbitalTimeline({
                                                                 >
                                                                     {relatedItem?.title}
                                                                     <ArrowRight
-                                                                        size={8}
-                                                                        className="ml-1 text-white/60"
+                                                                        size={12}
+                                                                        className="ml-1.5 text-white/90"
                                                                     />
                                                                 </Button>
                                                             );

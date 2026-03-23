@@ -22,7 +22,7 @@ interface Message {
 const WELCOME_MESSAGE: Message = {
   id: "welcome",
   role: "assistant",
-  text: "Merhaba! 👋 Ben Radent AI asistanınızım. Randevu almak, bilgi sormak veya kliniğimiz hakkında merak ettiklerinizi öğrenmek için buradayım. Size nasıl yardımcı olabilirim?",
+  text: "Merhaba! Ben Radent AI. Kliniğiniz için yapay zeka destekli randevu ve otomasyon sistemleri kuruyoruz. Demo almak, fiyat öğrenmek veya sistemi tanımak ister misiniz?",
   timestamp: new Date(),
   status: "sent",
 };
