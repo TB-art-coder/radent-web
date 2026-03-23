@@ -51,6 +51,10 @@ export default function BlogPost() {
             <ArrowLeft size={16} /> Blog'a Dön
           </Link>
 
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(74,222,128,0.4)]">
+            <MessageCircle size={40} className="text-white" />
+          </div>
+
           <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-6">
             WhatsApp ile Randevu Almanın Kliniğinize Faydaları
           </h1>
