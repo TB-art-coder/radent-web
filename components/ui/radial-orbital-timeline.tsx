@@ -25,20 +25,30 @@ export default function RadialOrbitalTimeline({
     timelineData,
 }: RadialOrbitalTimelineProps) {
     const [mounted, setMounted] = useState(false);
-    const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
-        {}
-    );
-    const [rotationAngle, setRotationAngle] = useState<number>(0);
+    const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
     const [autoRotate, setAutoRotate] = useState<boolean>(true);
     const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
-    const [centerOffset] = useState<{ x: number; y: number }>({
-        x: 0,
-        y: 0,
-    });
+    const [centerOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+    
     const containerRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
     const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
+
+    // Refs for animation loop
+    const rotationAngleRef = useRef<number>(0);
+    const requestRef = useRef<number | null>(null);
+    const autoRotateRef = useRef(autoRotate);
+    const expandedItemsRef = useRef(expandedItems);
+
+    // Sync state to refs for the animation loop
+    useEffect(() => {
+        autoRotateRef.current = autoRotate;
+    }, [autoRotate]);
+
+    useEffect(() => {
+        expandedItemsRef.current = expandedItems;
+    }, [expandedItems]);
 
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -86,50 +96,66 @@ export default function RadialOrbitalTimeline({
         setMounted(true);
     }, []);
 
-    useEffect(() => {
-        let rotationTimer: ReturnType<typeof setInterval>;
+    const updateNodesDOM = () => {
+        const total = timelineData.length;
+        timelineData.forEach((item, index) => {
+            const el = nodeRefs.current[item.id];
+            if (!el) return;
 
-        if (autoRotate && mounted) {
-            rotationTimer = setInterval(() => {
-                setRotationAngle((prev) => {
-                    const newAngle = (prev + 0.3) % 360;
-                    return Number(newAngle.toFixed(3));
-                });
-            }, 50);
-        }
+            const angle = ((index / total) * 360 + rotationAngleRef.current) % 360;
+            const radius = 200;
+            const radian = (angle * Math.PI) / 180;
 
-        return () => {
-            if (rotationTimer) {
-                clearInterval(rotationTimer);
+            const x = radius * Math.cos(radian) + centerOffset.x;
+            const y = radius * Math.sin(radian) + centerOffset.y;
+
+            const zIndex = Math.round(100 + 50 * Math.cos(radian));
+            const opacity = Math.max(
+                0.4,
+                Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))
+            );
+
+            const isExpanded = expandedItemsRef.current[item.id];
+
+            el.style.transform = `translate(${x}px, ${y}px)`;
+            if (!isExpanded) {
+                el.style.zIndex = zIndex.toString();
+                el.style.opacity = opacity.toString();
+            } else {
+                el.style.zIndex = "200";
+                el.style.opacity = "1";
             }
+        });
+    };
+
+    const animate = () => {
+        if (autoRotateRef.current) {
+            rotationAngleRef.current = (rotationAngleRef.current + 0.2) % 360;
+            updateNodesDOM();
+        }
+        requestRef.current = requestAnimationFrame(animate);
+    };
+
+    useEffect(() => {
+        if (mounted) {
+            // Initial position
+            updateNodesDOM();
+            requestRef.current = requestAnimationFrame(animate);
+        }
+        return () => {
+            if (requestRef.current) cancelAnimationFrame(requestRef.current);
         };
-    }, [autoRotate]);
+    }, [mounted]);
 
     const centerViewOnNode = (nodeId: number) => {
-        if (!nodeRefs.current[nodeId]) return;
-
         const nodeIndex = timelineData.findIndex((item) => item.id === nodeId);
+        if (nodeIndex === -1) return;
+        
         const totalNodes = timelineData.length;
         const targetAngle = (nodeIndex / totalNodes) * 360;
 
-        setRotationAngle(270 - targetAngle);
-    };
-
-    const calculateNodePosition = (index: number, total: number) => {
-        const angle = ((index / total) * 360 + rotationAngle) % 360;
-        const radius = 200;
-        const radian = (angle * Math.PI) / 180;
-
-        const x = radius * Math.cos(radian) + centerOffset.x;
-        const y = radius * Math.sin(radian) + centerOffset.y;
-
-        const zIndex = Math.round(100 + 50 * Math.cos(radian));
-        const opacity = Math.max(
-            0.4,
-            Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))
-        );
-
-        return { x, y, angle, zIndex, opacity };
+        rotationAngleRef.current = (270 - targetAngle + 360) % 360;
+        updateNodesDOM();
     };
 
     const getRelatedItems = (itemId: number): number[] => {
@@ -182,25 +208,22 @@ export default function RadialOrbitalTimeline({
 
                     <div className="absolute w-96 h-96 rounded-full border border-white/10"></div>
 
-                    {mounted && timelineData.map((item, index) => {
-                        const position = calculateNodePosition(index, timelineData.length);
+                    {mounted && timelineData.map((item) => {
                         const isExpanded = expandedItems[item.id];
                         const isRelated = isRelatedToActive(item.id);
                         const isPulsing = pulseEffect[item.id];
                         const Icon = item.icon;
 
-                        const nodeStyle = {
-                            transform: `translate(${position.x}px, ${position.y}px)`,
-                            zIndex: isExpanded ? 200 : position.zIndex,
-                            opacity: isExpanded ? 1 : position.opacity,
-                        };
-
                         return (
                             <div
                                 key={item.id}
-                                ref={(el) => { nodeRefs.current[item.id] = el; }}
-                                className="absolute transition-all duration-700 cursor-pointer"
-                                style={nodeStyle}
+                                ref={(el: HTMLDivElement | null) => { 
+                                    if (el) nodeRefs.current[item.id] = el; 
+                                }}
+                                className="absolute cursor-pointer will-change-transform"
+                                style={{
+                                    transition: isExpanded ? "all 0.5s ease" : "none"
+                                }}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     toggleItem(item.id);

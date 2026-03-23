@@ -223,11 +223,11 @@ const testimonials = [
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -254,7 +254,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* ── Navbar ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollY > 50 ? "glass-dark border-b border-white/5 py-3" : "py-5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-dark border-b border-white/5 py-3" : "py-5"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">

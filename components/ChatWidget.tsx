@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from "react";
 // Kendi n8n webhook URL'nizi buraya yapıştırın.
 const N8N_WEBHOOK_URL =
   process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL ||
-  "https://hohenhim.app.n8n.cloud/webhook/4fe15a31-6365-4b96-a3d5-3b02bbe3d31a";
+  "https://hohenhim.app.n8n.cloud/webhook/dishci-webchat";
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Role = "user" | "assistant";
