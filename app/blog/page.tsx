@@ -8,6 +8,7 @@ import ChatWidget from "@/components/ChatWidget";
 const blogPosts = [
   {
     id: 1,
+    slug: "randevu-kaybi",
     title: "Diş Kliniklerinde Randevu Kaybının 5 Nedeni ve Çözümü",
     excerpt: "Hastaların randevularına gelmemesi kliniklerin en büyük sorunlarından biridir. Otomatik hatırlatıcılar ve kolay iptal/erteleme seçenekleri ile bu kaybı nasıl minimize edeceğinizi keşfedin.",
     date: "Mart 2025",
@@ -17,6 +18,7 @@ const blogPosts = [
   },
   {
     id: 2,
+    slug: "whatsapp-randevu",
     title: "WhatsApp ile Randevu Almanın Kliniğinize Faydaları",
     excerpt: "Hastalarınızın %80'i telefonla aramak yerine mesajlaşmayı tercih ediyor. WhatsApp entegrasyonu sayesinde saniyeler içinde onaysız beklemeden randevu oluşturmanın avantajları.",
     date: "Mart 2025",
@@ -26,6 +28,7 @@ const blogPosts = [
   },
   {
     id: 3,
+    slug: "7-24-klinik",
     title: "7/24 Çalışan Bir Klinik Nasıl Olur?",
     excerpt: "Mesai saatleri dışında bile hastalarınıza hizmet vermek artık hayal değil. Yapay zeka destekli asistanlar ile kliniğinizin kapılarını dijitalde hiç kapatmayın.",
     date: "Mart 2025",
@@ -35,6 +38,7 @@ const blogPosts = [
   },
   {
     id: 4,
+    slug: "dijital-donusum",
     title: "Diş Kliniklerinde Dijital Dönüşüm: Nereden Başlamalı?",
     excerpt: "Geleneksel yöntemlerden dijital sistemlere geçiş süreci göz korkutucu olabilir. Ancak doğru planlama ve teknoloji seçimi ile bu dönüşümü pürüzsüz hale getirebilirsiniz.",
     date: "Mart 2025",
@@ -44,6 +48,7 @@ const blogPosts = [
   },
   {
     id: 5,
+    slug: "yapay-zeka-sekreter",
     title: "Yapay Zeka Sekreter mi, İnsan Sekreter mi?",
     excerpt: "Yapay zeka asistanlar insanların yerini mi alacak, yoksa onların işini mi kolaylaştıracak? İki farklı yaklaşımın güçlü ve zayıf yönlerini kliniğiniz için karşılaştırdık.",
     date: "Mart 2025",
@@ -120,7 +125,8 @@ export default function BlogPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <div 
+              <Link 
+                href={`/blog/${post.slug}`}
                 key={post.id} 
                 className="group glass rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] animate-fade-in-up"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
@@ -159,7 +165,7 @@ export default function BlogPage() {
                     <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
