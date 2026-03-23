@@ -197,7 +197,17 @@ const stats = [
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [formData, setFormData] = useState({ name: "", clinic: "", phone: "", city: "" });
 
+  const handleWhatsAppDemo = () => {
+    const message = `Merhaba, Radent AI demo talep ediyorum.
+Ad: ${formData.name || "-"}
+Klinik: ${formData.clinic || "-"}
+Telefon: ${formData.phone || "-"}
+Şehir: ${formData.city || "-"}`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/905546141492?text=${encodedMessage}`, '_blank');
+  };
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -656,28 +666,42 @@ export default function HomePage() {
               <input
                 type="text"
                 placeholder="Adınız"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="text"
                 placeholder="Klinik Adı"
+                value={formData.clinic}
+                onChange={(e) => setFormData({ ...formData, clinic: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="tel"
                 placeholder="WhatsApp Numaranız"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="text"
                 placeholder="Şehir"
+                value={formData.city}
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
             </div>
-            <button className="w-full whatsapp-btn flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-white font-semibold text-lg">
+            <button 
+              onClick={handleWhatsAppDemo}
+              className="w-full whatsapp-btn flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-white font-semibold text-lg transition-transform active:scale-[0.98]"
+            >
               <MessageCircle size={22} />
-              WhatsApp&apos;tan Demo Talep Et
+              WhatsApp'tan Demo Talep Et
             </button>
+            <p className="text-center text-white/60 text-sm mt-5">
+              Ya da sağ alttaki AI asistanımızla hemen konuşun 👇
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/40">
