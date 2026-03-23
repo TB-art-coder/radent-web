@@ -752,7 +752,8 @@ Telefon: ${formData.phone || "-"}
             <div>
               <h4 className="font-semibold text-sm mb-4">Şirket</h4>
               <ul className="space-y-2 text-sm text-white/40">
-                {["Hakkımızda", "Blog", "Kariyer", "Gizlilik Politikası"].map((item) => (
+                <li><a href="/about" className="hover:text-white/70 transition-colors">Hakkımızda</a></li>
+                {["Blog", "Kariyer", "Gizlilik Politikası"].map((item) => (
                   <li key={item}><a href="#" className="hover:text-white/70 transition-colors">{item}</a></li>
                 ))}
               </ul>
