@@ -753,8 +753,12 @@ Telefon: ${formData.phone || "-"}
               <h4 className="font-semibold text-sm mb-4">Şirket</h4>
               <ul className="space-y-2 text-sm text-white/40">
                 <li><a href="/about" className="hover:text-white/70 transition-colors">Hakkımızda</a></li>
-                {["Blog", "Kariyer", "Gizlilik Politikası"].map((item) => (
-                  <li key={item}><a href="#" className="hover:text-white/70 transition-colors">{item}</a></li>
+                {[
+                  { name: "Blog", href: "/blog" },
+                  { name: "Kariyer", href: "#" },
+                  { name: "Gizlilik Politikası", href: "#" }
+                ].map((item) => (
+                  <li key={item.name}><a href={item.href} className="hover:text-white/70 transition-colors">{item.name}</a></li>
                 ))}
               </ul>
             </div>
