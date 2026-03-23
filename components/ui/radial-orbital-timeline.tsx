@@ -111,8 +111,8 @@ export default function RadialOrbitalTimeline({
 
             const zIndex = Math.round(100 + 50 * Math.cos(radian));
             const opacity = Math.max(
-                0.4,
-                Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))
+                0.8,
+                Math.min(1, 0.8 + 0.2 * ((1 + Math.sin(radian)) / 2))
             );
 
             const isExpanded = expandedItemsRef.current[item.id];
@@ -269,16 +269,19 @@ export default function RadialOrbitalTimeline({
                   absolute top-12 whitespace-nowrap
                   text-xs font-semibold tracking-wider
                   transition-all duration-300
-                  ${isExpanded ? "text-white scale-125" : "text-white/90"}
+                  ${isExpanded ? "text-white scale-125" : "text-white opacity-100"}
                 `}
                                 >
                                     {item.title}
                                 </div>
 
                                 {isExpanded && (
-                                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-black/95 backdrop-blur-xl border border-white/40 shadow-2xl shadow-white/20 overflow-visible z-50">
+                                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-gray-900 backdrop-blur-xl border border-white/20 shadow-2xl shadow-white/20 overflow-visible z-50">
                                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/80"></div>
                                         <CardHeader className="pb-2 pt-5">
+                                            <div className="text-xs uppercase tracking-wider font-bold text-white/70 mb-2">
+                                                {item.category}
+                                            </div>
                                             <div className="flex justify-between items-center mb-1">
                                                 <Badge
                                                     className={`px-2 text-xs font-bold ${getStatusStyles(
@@ -299,7 +302,7 @@ export default function RadialOrbitalTimeline({
                                                 {item.title}
                                             </CardTitle>
                                         </CardHeader>
-                                        <CardContent className="text-sm text-white/95 leading-relaxed font-medium">
+                                        <CardContent className="text-sm text-white/90 leading-relaxed font-medium">
                                             <p>{item.content}</p>
 
                                             <div className="mt-5 pt-4 border-t border-white/20">
