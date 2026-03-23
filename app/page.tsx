@@ -187,39 +187,11 @@ const features = [
 
 // ── Stats ────────────────────────────────────────────────────────────────────
 const stats = [
-  { value: "200+", label: "Aktif Klinik", icon: Users },
   { value: "%94", label: "Randevu Doluluk Oranı", icon: TrendingUp },
   { value: "7/24", label: "Kesintisiz Hizmet", icon: Clock },
   { value: "48s", label: "Kurulum Süresi", icon: Zap },
 ];
 
-// ── Testimonials ─────────────────────────────────────────────────────────────
-const testimonials = [
-  {
-    name: "Dr. Ayşe Kara",
-    role: "Genel Diş Hekimi, İstanbul",
-    avatar: "AK",
-    content:
-      "Radent sayesinde sekretaryamın %80 daha az telefon açmasına gerek kaldı. Hastalar randevularını WhatsApp'tan alıyor, takvimimiz otomatik doluyor. Harika!",
-    stars: 5,
-  },
-  {
-    name: "Dr. Mehmet Yılmaz",
-    role: "Ortodonti Uzmanı, Ankara",
-    avatar: "MY",
-    content:
-      "Google Takvim entegrasyonu ile artık hiç randevu çakışması yaşamıyoruz. Bot Türkçeyi çok iyi anlıyor ve hastalarımız memnun.",
-    stars: 5,
-  },
-  {
-    name: "Dt. Zeynep Arslan",
-    role: "Periodontoloji, İzmir",
-    avatar: "ZA",
-    content:
-      "n8n otomasyon akışları sayesinde randevu hatırlatmaları ve anketler otomatik gidiyor. Personel verimliliği inanılmaz arttı.",
-    stars: 5,
-  },
-];
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function HomePage() {
@@ -270,7 +242,6 @@ export default function HomePage() {
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
             <a href="#features" className="hover:text-white transition-colors">Özellikler</a>
             <a href="#how-it-works" className="hover:text-white transition-colors">Nasıl Çalışır</a>
-            <a href="#testimonials" className="hover:text-white transition-colors">Referanslar</a>
             <a href="#contact" className="hover:text-white transition-colors">İletişim</a>
           </div>
 
@@ -656,42 +627,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <section id="testimonials" className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-amber-500/30 text-sm text-amber-300 mb-5">
-              <Star size={14} />
-              Referanslar
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-5 tracking-tight">
-              Kliniklerin <span className="gradient-text">Güveni</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div key={t.name} className="feature-card glass rounded-2xl p-7 border border-white/5" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(t.stars)].map((_, i) => (
-                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-5 italic">&ldquo;{t.content}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-sm font-bold shrink-0">
-                    {t.avatar}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">{t.name}</div>
-                    <div className="text-xs text-white/40">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA ── */}
       <section id="contact" className="py-24 relative overflow-hidden">
@@ -769,14 +704,14 @@ export default function HomePage() {
                 Türkiye&apos;nin en akıllı klinik yönetim platformu.
               </p>
               <div className="flex items-center gap-3 mt-5">
-                <a href="mailto:info@radent.ai" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
+                <a href="mailto:demo@radentai.co" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
                   <Mail size={14} />
-                  info@radent.ai
+                  demo@radentai.co
                 </a>
                 <span className="text-white/20">•</span>
-                <a href="tel:+905001234567" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
+                <a href="tel:+905546141492" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
                   <Phone size={14} />
-                  +90 500 123 45 67
+                  +90 554 614 14 92
                 </a>
               </div>
             </div>
