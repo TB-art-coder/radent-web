@@ -755,7 +755,7 @@ Telefon: ${formData.phone || "-"}
                 <li><a href="/about" className="hover:text-white/70 transition-colors">Hakkımızda</a></li>
                 {[
                   { name: "Blog", href: "/blog" },
-                  { name: "Kariyer", href: "#" },
+                  { name: "Kariyer", href: "/kariyer" },
                   { name: "Gizlilik Politikası", href: "#" }
                 ].map((item) => (
                   <li key={item.name}><a href={item.href} className="hover:text-white/70 transition-colors">{item.name}</a></li>

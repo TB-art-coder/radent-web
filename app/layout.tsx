@@ -14,8 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Radent AI — Diş Kliniklerine Özel Yapay Zeka Asistanı",
-  description:
-    "Radent, diş kliniklerine özel WhatsApp randevu botu ve Google Takvim entegrasyonu ile kliniğinizi 7/24 otomatize eder.",
+  description: "WhatsApp randevu botu, Google Takvim entegrasyonu ve tam otomasyon ile kliniğiniz 7/24 çalışır. 48 saat içinde kurulum. Ücretsiz demo alın.",
+  keywords: "diş kliniği randevu sistemi, diş kliniği otomasyon, whatsapp randevu botu, diş kliniği yapay zeka, klinik yönetim sistemi",
+  openGraph: {
+    title: "Radent AI — Diş Kliniklerine Özel Yapay Zeka",
+    description: "Kliniğinizi 48 saatte dönüştürün. WhatsApp botu, Google Takvim entegrasyonu ve tam otomasyon.",
+    url: "https://www.radentai.co",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.radentai.co",
+  },
 };
 
 export default function RootLayout({
