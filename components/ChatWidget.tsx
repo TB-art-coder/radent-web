@@ -14,7 +14,9 @@ type Role = "user" | "assistant";
 interface Message {
   id: string;
   role: Role;
-  text: string;
+  text?: string;
+  content?: string;
+  message?: string;
   timestamp: Date;
   status?: "sending" | "sent" | "error";
 }
@@ -612,7 +614,7 @@ export default function ChatWidget() {
                 </div>
                 <div className="cw-msg-content">
                   <div className={`cw-bubble ${msg.role === "user" ? "user" : "bot"} ${msg.status === "error" ? "error" : ""}`} style={{ whiteSpace: 'pre-wrap' }}>
-                    {msg.role === "assistant" ? renderMessage(msg.text) : msg.text}
+                    {msg.role === "assistant" ? renderMessage(msg.text || msg.content || msg.message || '') : (msg.text || msg.content || msg.message || '')}
                   </div>
                   <div className="cw-msg-meta">
                     {formatTime(msg.timestamp)}
