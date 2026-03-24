@@ -91,9 +91,7 @@ export default function ChatWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: text,
-          sessionId: getSessionId(),
-          timestamp: new Date().toISOString(),
-          source: "radent-chat-widget",
+          sessionId: getSessionId()
         }),
       });
 
@@ -688,11 +686,7 @@ export default function ChatWidget() {
 // ─── Session helper ───────────────────────────────────────────────────────────
 function getSessionId(): string {
   if (typeof window === "undefined") return "ssr";
-  const key = "radent_chat_session";
-  let id = sessionStorage.getItem(key);
-  if (!id) {
-    id = "sess_" + Math.random().toString(36).slice(2) + Date.now();
-    sessionStorage.setItem(key, id);
-  }
-  return id;
+  const sessionId = localStorage.getItem('chatSessionId') || Math.random().toString(36).substring(7);
+  localStorage.setItem('chatSessionId', sessionId);
+  return sessionId;
 }
