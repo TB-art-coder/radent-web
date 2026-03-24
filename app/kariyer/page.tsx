@@ -114,7 +114,7 @@ export default function KariyerPage() {
                 {[
                   { name: "Blog", href: "/blog" },
                   { name: "Kariyer", href: "/kariyer" },
-                  { name: "Gizlilik Politikası", href: "#" }
+                  { name: "Gizlilik Politikası", href: "/gizlilik" }
                 ].map((item) => (
                   <li key={item.name}><Link href={item.href} className="hover:text-white/70 transition-colors">{item.name}</Link></li>
                 ))}

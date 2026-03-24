@@ -756,7 +756,7 @@ Telefon: ${formData.phone || "-"}
                 {[
                   { name: "Blog", href: "/blog" },
                   { name: "Kariyer", href: "/kariyer" },
-                  { name: "Gizlilik Politikası", href: "#" }
+                  { name: "Gizlilik Politikası", href: "/gizlilik" }
                 ].map((item) => (
                   <li key={item.name}><a href={item.href} className="hover:text-white/70 transition-colors">{item.name}</a></li>
                 ))}
