@@ -39,6 +39,10 @@ function generateId() {
 
 // ─── Format Message ───────────────────────────────────────────────────────────
 const renderMessage = (text: string) => {
+  if (text) {
+    text = text.replace(/(\d\. )/g, '\n$1');
+  }
+  
   if (text?.includes('wa.me/')) {
     const parts = text.split(/(wa\.me\/\S+)/g);
     return parts.map((part, i) => {
