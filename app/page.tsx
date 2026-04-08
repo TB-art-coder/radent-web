@@ -309,6 +309,26 @@ Telefon: ${formData.phone || "-"}
             </a>
           </div>
 
+          {/* Hero Video Section */}
+          <div className="mt-12 max-w-[400px] mx-auto animate-fade-in-up glass p-3 border border-white/10 rounded-3xl" style={{ animationDelay: "0.4s" }}>
+            <p className="text-sm text-white/80 font-medium mb-3">
+              Nasıl Çalıştığımızı İzleyin 👇
+            </p>
+            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/40">
+              <video 
+                width="100%" 
+                height="100%" 
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/Radent Reklam 5.mp4" type="video/mp4" />
+                Tarayıcınız video etiketini desteklemiyor.
+              </video>
+            </div>
+          </div>
+
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-6 mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
             {stats.map((s) => (
