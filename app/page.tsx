@@ -287,12 +287,28 @@ Telefon: ${formData.phone || "-"}
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid-pattern">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black border-b border-white/5">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover opacity-30 mix-blend-lighten"
+          >
+            <source src="/radent_reklam_yeni.mp4" type="video/mp4" />
+          </video>
+          {/* Gradient overlays to ensure text readability & merge cleanly */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-30 mix-blend-overlay"></div>
+        </div>
+
         {/* Background glows */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-900/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/30 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-900/20 rounded-full blur-[100px]" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -323,27 +339,6 @@ Telefon: ${formData.phone || "-"}
               Nasıl Çalışır
               <ChevronRight size={18} />
             </a>
-          </div>
-
-          {/* Hero Video Section */}
-          <div className="mt-16 relative w-full max-w-[320px] mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            {/* Soft glowing background effect */}
-            <div className="absolute -inset-1.5 bg-gradient-to-tr from-purple-500/40 via-blue-500/40 to-emerald-500/40 rounded-[2rem] blur-xl opacity-50"></div>
-            
-            {/* Video Container */}
-            <div className="relative rounded-[2rem] overflow-hidden aspect-[9/16] border border-white/20 bg-black shadow-2xl">
-              <video 
-                width="100%" 
-                height="100%" 
-                controls
-                controlsList="nodownload"
-                preload="metadata"
-                className="w-full h-full object-cover"
-              >
-                <source src="/radent_reklam_yeni.mp4" type="video/mp4" />
-                Tarayıcınız video etiketini desteklemiyor.
-              </video>
-            </div>
           </div>
 
           {/* Trust badges */}
