@@ -310,18 +310,19 @@ Telefon: ${formData.phone || "-"}
           </div>
 
           {/* Hero Video Section */}
-          <div className="mt-12 max-w-[400px] mx-auto animate-fade-in-up glass p-3 border border-white/10 rounded-3xl" style={{ animationDelay: "0.4s" }}>
-            <p className="text-sm text-white/80 font-medium mb-3">
-              Nasıl Çalıştığımızı İzleyin 👇
-            </p>
-            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/40">
+          <div className="mt-16 relative w-full max-w-[320px] mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            {/* Soft glowing background effect */}
+            <div className="absolute -inset-1.5 bg-gradient-to-tr from-purple-500/40 via-blue-500/40 to-emerald-500/40 rounded-[2rem] blur-xl opacity-50"></div>
+            
+            {/* Video Container */}
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[9/16] border border-white/20 bg-black shadow-2xl">
               <video 
                 width="100%" 
                 height="100%" 
                 controls
                 controlsList="nodownload"
                 preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="w-full h-full object-cover"
               >
                 <source src="/Radent Reklam 5.mp4" type="video/mp4" />
                 Tarayıcınız video etiketini desteklemiyor.
