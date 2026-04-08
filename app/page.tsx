@@ -162,9 +162,9 @@ const features = [
     color: "from-sky-500 to-cyan-600",
     glow: "rgba(14,165,233,0.2)",
     title: "Sağlık Turizmi & Çoklu Dil",
-    desc: "Gemini 2.5 Flash altyapısı sayesinde hastalarınızla İngilizce, Rusça, Arapça dahil 50+ dilde native ve anında iletişim kurun.",
+    desc: "Gelişmiş yapay zeka desteğiyle, hastalarınızla İngilizce, Rusça, Arapça dahil 50+ dilde native ve anında iletişim kurun.",
     points: [
-      "Gemini 2.5 Flash hızı",
+      "Anında akıllı çeviri",
       "Native 50+ dil desteği",
       "Uluslararası randevu",
       "Tercüman maliyetini sıfırla",
