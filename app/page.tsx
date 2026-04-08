@@ -340,7 +340,7 @@ Telefon: ${formData.phone || "-"}
                 preload="metadata"
                 className="w-full h-full object-cover"
               >
-                <source src="/Radent Reklam 5.mp4" type="video/mp4" />
+                <source src="/radent_reklam_yeni.mp4" type="video/mp4" />
                 Tarayıcınız video etiketini desteklemiyor.
               </video>
             </div>
