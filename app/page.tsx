@@ -309,25 +309,6 @@ Telefon: ${formData.phone || "-"}
             </a>
           </div>
 
-          {/* Hero Video Section */}
-          <div className="mt-12 max-w-[400px] mx-auto animate-fade-in-up glass p-3 border border-white/10 rounded-3xl" style={{ animationDelay: "0.4s" }}>
-            <p className="text-sm text-white/80 font-medium mb-3">
-              Nasıl Çalıştığımızı İzleyin 👇
-            </p>
-            <div className="relative rounded-2xl overflow-hidden aspect-[9/16]">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/KGIL9gwzMy4" 
-                title="Radent AI Demo" 
-                frameBorder="0" 
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              ></iframe>
-            </div>
-          </div>
-
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-6 mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
             {stats.map((s) => (
