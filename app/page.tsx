@@ -193,12 +193,32 @@ const stats = [
   { value: "48s", label: "Kurulum Süresi", icon: Zap },
 ];
 
+const faqs = [
+  {
+    q: "Hangi kanallardan çalışıyor?",
+    a: "WhatsApp, telefon ve web sitesi üzerinden gelen randevu taleplerini otomatik olarak karşılar. İstek durumunda diğer platformlarla da entegrasyon sağlanabilir."
+  },
+  {
+    q: "Bot yanlış cevap verirse ne olur?",
+    a: "Belirsiz durumlarda hasta kliniğinize yönlendirilir. Tüm konuşmalar kayıt altına alınır."
+  },
+  {
+    q: "Kurulum ne kadar sürer?",
+    a: "48 saat içinde kliniğiniz canlıya alınır. Kurulum tamamen bizim tarafımızdan yapılır."
+  },
+  {
+    q: "Sözleşme zorunluluğu var mı?",
+    a: "Hayır. Bağlayıcı sözleşme yoktur, istediğiniz zaman iptal edebilirsiniz."
+  }
+];
+
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [formData, setFormData] = useState({ name: "", clinic: "", phone: "", city: "" });
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const handleWhatsAppDemo = () => {
     const message = `Merhaba, Radent AI demo talep ediyorum.
@@ -725,6 +745,44 @@ Telefon: ${formData.phone || "-"}
             <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> Ücretsiz kurulum</span>
             <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> Bağlayıcı sözleşme yok</span>
             <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> 48 saat canlı</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-5 tracking-tight">
+              Sıkça Sorulan <span className="gradient-text">Sorular</span>
+            </h2>
+          </div>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="glass rounded-2xl border border-white/10 overflow-hidden transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                >
+                  <span className="font-semibold text-lg">{faq.q}</span>
+                  <div className={`w-8 h-8 rounded-full glass border border-white/10 flex items-center justify-center shrink-0 transition-transform duration-300 ${openFaq === index ? "rotate-90 bg-white/10" : ""}`}>
+                    <ChevronRight size={16} />
+                  </div>
+                </button>
+                <div 
+                  className={`px-6 text-white/60 leading-relaxed overflow-hidden transition-all duration-300 ${
+                    openFaq === index ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {faq.a}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
