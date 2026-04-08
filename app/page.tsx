@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   MessageCircle,
   Calendar,
@@ -240,14 +241,14 @@ Telefon: ${formData.phone || "-"}
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
               <Sparkles size={16} className="text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight">
               Rad<span className="gradient-text">ent</span>
             </span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
             <a href="#features" className="hover:text-white transition-colors">Özellikler</a>
@@ -275,11 +276,6 @@ Telefon: ${formData.phone || "-"}
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-8 animate-fade-in-up">
-            <Sparkles size={14} />
-            Türkiye&apos;nin İlk Diş Kliniği AI Asistanı
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             Kliniğinizi{" "}
             <span className="gradient-text">Yapay Zeka</span>
