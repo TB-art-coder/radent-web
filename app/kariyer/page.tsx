@@ -90,11 +90,6 @@ export default function KariyerPage() {
                   <Mail size={14} />
                   demo@radentai.co
                 </a>
-                <span className="text-white/20">•</span>
-                <a href="tel:+905546141492" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
-                  <Phone size={14} />
-                  +90 554 614 14 92
-                </a>
               </div>
             </div>
 
