@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowLeft, Sparkles, CheckCircle, Target, Users, Shield } from "lucide-react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
