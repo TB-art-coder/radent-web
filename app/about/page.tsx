@@ -12,14 +12,14 @@ export default function AboutPage() {
       {/* ── Navbar ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 py-5 glass-dark border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
               <Sparkles size={16} className="text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight">
               Rad<span className="gradient-text">ent</span>
             </span>
-          </Link>
+          </a>
 
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
@@ -28,7 +28,7 @@ export default function AboutPage() {
               className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium"
             >
               <ArrowLeft size={16} />
-              {t("nav.home")}
+              <span className="hidden sm:inline">{t("nav.home")}</span>
             </Link>
           </div>
         </div>

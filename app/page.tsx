@@ -353,14 +353,14 @@ Telefon: ${formData.phone || "-"}
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
               <Sparkles size={16} className="text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight">
               Rad<span className="gradient-text">ent</span>
             </span>
-          </Link>
+          </a>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
             <a href="#features" className="hover:text-white transition-colors">{t('nav.features')}</a>
@@ -375,7 +375,7 @@ Telefon: ${formData.phone || "-"}
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
             >
               <MessageCircle size={14} />
-              {t('nav.getDemo')}
+              <span className="hidden sm:inline">{t('nav.getDemo')}</span>
             </a>
           </div>
         </div>

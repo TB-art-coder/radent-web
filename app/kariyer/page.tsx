@@ -13,14 +13,14 @@ export default function KariyerPage() {
       {/* ── Navbar ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-dark border-b border-white/5 py-3 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
               <Sparkles size={16} className="text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight">
               Rad<span className="gradient-text">ent</span>
             </span>
-          </Link>
+          </a>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
             <Link href="/#features" className="hover:text-white transition-colors">{t('nav.features')}</Link>
@@ -30,13 +30,13 @@ export default function KariyerPage() {
 
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <Link
+            <a
               href="/#contact"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
             >
               <MessageCircle size={14} />
-              {t('nav.getDemo')}
-            </Link>
+              <span className="hidden sm:inline">{t('nav.getDemo')}</span>
+            </a>
           </div>
         </div>
       </nav>
