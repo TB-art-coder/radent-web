@@ -31,13 +31,12 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
 
 // ── Orbital Timeline Data ─────────────────────────────────────────────────────
-const orbitalData = [
+const trOrbitalData = [
   {
     id: 1,
     title: "WhatsApp Botu",
     date: "7/24 Aktif",
-    content:
-      "Hastalar WhatsApp üzerinden randevu alır, iptal eder ve bilgi sorgular. Bot saniyeler içinde akıllıca yanıt verir.",
+    content: "Hastalar WhatsApp üzerinden randevu alır, iptal eder ve bilgi sorgular. Bot saniyeler içinde akıllıca yanıt verir.",
     category: "İletişim",
     icon: MessageCircle,
     relatedIds: [2, 3],
@@ -48,8 +47,7 @@ const orbitalData = [
     id: 2,
     title: "Google Takvim",
     date: "Anlık Sync",
-    content:
-      "Randevular otomatik olarak kliniğinizin Google Takvimine eklenir. Doktor ve personel takvimlerini senkronize eder.",
+    content: "Randevular otomatik olarak kliniğinizin Google Takvimine eklenir. Doktor ve personel takvimlerini senkronize eder.",
     category: "Entegrasyon",
     icon: Calendar,
     relatedIds: [1, 4],
@@ -60,8 +58,7 @@ const orbitalData = [
     id: 3,
     title: "AI Asistan",
     date: "GPT-4 Güçlü",
-    content:
-      "Hasta sorularını anlayan, klinik protokollerinizi öğrenen ve kişiselleştirilmiş yanıtlar üreten yapay zeka.",
+    content: "Hasta sorularını anlayan, klinik protokollerinizi öğrenen ve kişiselleştirilmiş yanıtlar üreten yapay zeka.",
     category: "Yapay Zeka",
     icon: Bot,
     relatedIds: [1, 5],
@@ -72,8 +69,7 @@ const orbitalData = [
     id: 4,
     title: "Tam Otomasyon",
     date: "No-Code",
-    content:
-      "Randevu hatırlatmaları, anket gönderimi ve CRM senkronizasyonu için 500+ entegrasyon ile güçlü iş akışları.",
+    content: "Randevu hatırlatmaları, anket gönderimi ve CRM senkronizasyonu için 500+ entegrasyon ile güçlü iş akışları.",
     category: "Otomasyon",
     icon: RefreshCw,
     relatedIds: [2, 6],
@@ -84,8 +80,7 @@ const orbitalData = [
     id: 5,
     title: "Bildirimler",
     date: "Anlık",
-    content:
-      "Hasta randevusu, iptali veya acil durumunda kliniğinize anlık bildirim gönderilir. Hiçbir şeyi kaçırmayın.",
+    content: "Hasta randevusu, iptali veya acil durumunda kliniğinize anlık bildirim gönderilir. Hiçbir şeyi kaçırmayın.",
     category: "Bildirim",
     icon: Bell,
     relatedIds: [3, 4],
@@ -96,8 +91,7 @@ const orbitalData = [
     id: 6,
     title: "Analitik Panel",
     date: "Gerçek Zamanlı",
-    content:
-      "Hasta eğilimleri, randevu oranları ve bot performansını gösteren kapsamlı dashboard ile veriye dayalı kararlar alın.",
+    content: "Hasta eğilimleri, randevu oranları ve bot performansını gösteren kapsamlı dashboard ile veriye dayalı kararlar alın.",
     category: "Analitik",
     icon: BarChart3,
     relatedIds: [4, 1],
@@ -106,20 +100,84 @@ const orbitalData = [
   },
 ];
 
+const enOrbitalData = [
+  {
+    id: 1,
+    title: "WhatsApp Bot",
+    date: "24/7 Active",
+    content: "Patients book, cancel, and query via WhatsApp. The bot responds intelligently in seconds.",
+    category: "Communication",
+    icon: MessageCircle,
+    relatedIds: [2, 3],
+    status: "completed" as const,
+    energy: 100,
+  },
+  {
+    id: 2,
+    title: "Google Calendar",
+    date: "Instant Sync",
+    content: "Appointments are instantly added to your clinic's Google Calendar. Synchronizes doctor and staff calendars.",
+    category: "Integration",
+    icon: Calendar,
+    relatedIds: [1, 4],
+    status: "completed" as const,
+    energy: 95,
+  },
+  {
+    id: 3,
+    title: "AI Assistant",
+    date: "GPT-4 Powered",
+    content: "Artificial intelligence that understands patient questions, learns your clinical protocols, and creates personalized responses.",
+    category: "AI",
+    icon: Bot,
+    relatedIds: [1, 5],
+    status: "completed" as const,
+    energy: 98,
+  },
+  {
+    id: 4,
+    title: "Full Automation",
+    date: "No-Code",
+    content: "Powerful workflows with 500+ integrations for appointment reminders, surveys, and CRM sync.",
+    category: "Automation",
+    icon: RefreshCw,
+    relatedIds: [2, 6],
+    status: "in-progress" as const,
+    energy: 80,
+  },
+  {
+    id: 5,
+    title: "Notifications",
+    date: "Instant",
+    content: "Instant notifications sent to your clinic for appointments, cancellations, or emergencies. Never miss a thing.",
+    category: "Alerts",
+    icon: Bell,
+    relatedIds: [3, 4],
+    status: "in-progress" as const,
+    energy: 75,
+  },
+  {
+    id: 6,
+    title: "Analytics Panel",
+    date: "Real-Time",
+    content: "Make data-driven decisions with a comprehensive dashboard showing patient trends, booking rates, and bot performance.",
+    category: "Analytics",
+    icon: BarChart3,
+    relatedIds: [4, 1],
+    status: "pending" as const,
+    energy: 60,
+  },
+];
+
 // ── Features ────────────────────────────────────────────────────────────────
-const features = [
+const trFeatures = [
   {
     icon: MessageCircle,
     color: "from-green-500 to-emerald-600",
     glow: "rgba(34,197,94,0.2)",
     title: "WhatsApp Randevu Botu",
     desc: "Hastalarınız WhatsApp'tan saniyeler içinde randevu alır. Bot, kliniğinizin müsait saatlerini kontrol eder ve otomatik onay gönderir.",
-    points: [
-      "7/24 kesintisiz hizmet",
-      "Türkçe doğal dil anlama",
-      "Otomatik onay & hatırlatma",
-      "Çakışma kontrolü",
-    ],
+    points: ["7/24 kesintisiz hizmet", "Türkçe doğal dil anlama", "Otomatik onay & hatırlatma", "Çakışma kontrolü"],
   },
   {
     icon: Calendar,
@@ -127,12 +185,7 @@ const features = [
     glow: "rgba(59,130,246,0.2)",
     title: "Google Takvim Entegrasyonu",
     desc: "Alınan her randevu anında Google Takviminize yansır. Doktorlarınız ve personel kendi takvimlerini gerçek zamanlı görür.",
-    points: [
-      "Anlık iki yönlü senkronizasyon",
-      "Çoklu doktor takvimi",
-      "Tatil & izin yönetimi",
-      "Tekrarlayan randevular",
-    ],
+    points: ["Anlık iki yönlü senkronizasyon", "Çoklu doktor takvimi", "Tatil & izin yönetimi", "Tekrarlayan randevular"],
   },
   {
     icon: RefreshCw,
@@ -140,12 +193,7 @@ const features = [
     glow: "rgba(168,85,247,0.2)",
     title: "Tam Otomasyon",
     desc: "Randevu hatırlatması, anket, SMS ve daha fazlası için görsel iş akışlarıyla kliniğinizin tüm süreçlerini otomatize edin.",
-    points: [
-      "500+ uygulama entegrasyonu",
-      "Kodsuz iş akışı tasarımı",
-      "Anket & geri bildirim",
-      "CRM senkronizasyonu",
-    ],
+    points: ["500+ uygulama entegrasyonu", "Kodsuz iş akışı tasarımı", "Anket & geri bildirim", "CRM senkronizasyonu"],
   },
   {
     icon: Shield,
@@ -153,12 +201,7 @@ const features = [
     glow: "rgba(20,184,166,0.2)",
     title: "KVKK Uyumlu & Güvenli",
     desc: "Hasta verileriniz şifreli kanallar üzerinden iletilir ve KVKK mevzuatına tam uyumlu altyapıyla korunur.",
-    points: [
-      "End-to-end şifreleme",
-      "KVKK uyumlu veri işleme",
-      "Türkiye sunucuları",
-      "İzinli pazarlama",
-    ],
+    points: ["End-to-end şifreleme", "KVKK uyumlu veri işleme", "Türkiye sunucuları", "İzinli pazarlama"],
   },
   {
     icon: Globe,
@@ -166,12 +209,7 @@ const features = [
     glow: "rgba(14,165,233,0.2)",
     title: "Sağlık Turizmi & Çoklu Dil",
     desc: "Gelişmiş yapay zeka desteğiyle, hastalarınızla İngilizce, Rusça, Arapça dahil 50+ dilde native ve anında iletişim kurun.",
-    points: [
-      "Anında akıllı çeviri",
-      "Native 50+ dil desteği",
-      "Uluslararası randevu",
-      "Tercüman maliyetini sıfırla",
-    ],
+    points: ["Anında akıllı çeviri", "Native 50+ dil desteği", "Uluslararası randevu", "Tercüman maliyetini sıfırla"],
   },
   {
     icon: Settings,
@@ -179,45 +217,96 @@ const features = [
     glow: "rgba(236,72,153,0.2)",
     title: "Kolay Kurulum & Destek",
     desc: "48 saat içinde kliniğiniz canlıya alınır. Teknik destek ekibimiz her adımda yanınızda. Kurulum sizden değil bizden.",
-    points: [
-      "48 saat kurulum süresi",
-      "Ücretsiz onboarding",
-      "7/24 teknik destek",
-      "Video eğitim içerikleri",
-    ],
+    points: ["48 saat kurulum süresi", "Ücretsiz onboarding", "7/24 teknik destek", "Video eğitim içerikleri"],
+  },
+];
+
+const enFeatures = [
+  {
+    icon: MessageCircle,
+    color: "from-green-500 to-emerald-600",
+    glow: "rgba(34,197,94,0.2)",
+    title: "WhatsApp Appointment Bot",
+    desc: "Patients book appointments in seconds via WhatsApp. The bot checks available times and sends automatic confirmations.",
+    points: ["24/7 uninterrupted service", "Natural language processing", "Auto confirm & reminder", "Conflict detection"],
+  },
+  {
+    icon: Calendar,
+    color: "from-blue-500 to-indigo-600",
+    glow: "rgba(59,130,246,0.2)",
+    title: "Google Calendar Integration",
+    desc: "Every booked appointment reflects instantly on your Google Calendar. Doctors and staff view schedules in real-time.",
+    points: ["Instant two-way sync", "Multi-doctor calendars", "Holiday & leave sync", "Recurring appointments"],
+  },
+  {
+    icon: RefreshCw,
+    color: "from-purple-500 to-violet-600",
+    glow: "rgba(168,85,247,0.2)",
+    title: "Full Automation",
+    desc: "Automate all your clinic processes with visual workflows for reminders, surveys, SMS, and more.",
+    points: ["500+ app integrations", "No-code workflow design", "Surveys & feedback", "CRM synchronization"],
+  },
+  {
+    icon: Shield,
+    color: "from-teal-500 to-cyan-600",
+    glow: "rgba(20,184,166,0.2)",
+    title: "HIPAA & GDPR Compliant",
+    desc: "Patient data is transmitted over encrypted channels and protected with a strictly compliant infrastructure.",
+    points: ["End-to-end encryption", "Compliant data processing", "Secure cloud servers", "Permission-based marketing"],
+  },
+  {
+    icon: Globe,
+    color: "from-sky-500 to-cyan-600",
+    glow: "rgba(14,165,233,0.2)",
+    title: "Health Tourism & Multi-Language",
+    desc: "Communicate natively and instantly in 50+ languages, including English, Russian, and Arabic, using advanced AI support.",
+    points: ["Instant smart translation", "Native 50+ language support", "International booking", "Zero translator costs"],
+  },
+  {
+    icon: Settings,
+    color: "from-pink-500 to-rose-600",
+    glow: "rgba(236,72,153,0.2)",
+    title: "Easy Setup & Support",
+    desc: "Your clinic goes live within 48 hours. Our technical support team is by your side every step of the way.",
+    points: ["48-hour setup time", "Free onboarding", "24/7 technical support", "Video training content"],
   },
 ];
 
 // ── Stats ────────────────────────────────────────────────────────────────────
-const stats = [
+const trStats = [
   { value: "%94", label: "Randevu Doluluk Oranı", icon: TrendingUp },
   { value: "7/24", label: "Kesintisiz Hizmet", icon: Clock },
   { value: "48s", label: "Kurulum Süresi", icon: Zap },
 ];
 
-const faqs = [
-  {
-    q: "Hangi kanallardan çalışıyor?",
-    a: "WhatsApp, telefon ve web sitesi üzerinden gelen randevu taleplerini otomatik olarak karşılar. İstek durumunda diğer platformlarla da entegrasyon sağlanabilir."
-  },
-  {
-    q: "Bot yanlış cevap verirse ne olur?",
-    a: "Belirsiz durumlarda hasta kliniğinize yönlendirilir. Tüm konuşmalar kayıt altına alınır."
-  },
-  {
-    q: "Kurulum ne kadar sürer?",
-    a: "48 saat içinde kliniğiniz canlıya alınır. Kurulum tamamen bizim tarafımızdan yapılır."
-  },
-  {
-    q: "Sözleşme zorunluluğu var mı?",
-    a: "Hayır. Bağlayıcı sözleşme yoktur, istediğiniz zaman iptal edebilirsiniz."
-  }
+const enStats = [
+  { value: "94%", label: "Appointment Fill Rate", icon: TrendingUp },
+  { value: "24/7", label: "Continuous Service", icon: Clock },
+  { value: "48h", label: "Setup Time", icon: Zap },
+];
+
+const trFaqs = [
+  { q: "Hangi kanallardan çalışıyor?", a: "WhatsApp, telefon ve web sitesi üzerinden gelen randevu taleplerini otomatik olarak karşılar. İstek durumunda diğer platformlarla da entegrasyon sağlanabilir." },
+  { q: "Bot yanlış cevap verirse ne olur?", a: "Belirsiz durumlarda hasta kliniğinize yönlendirilir. Tüm konuşmalar kayıt altına alınır." },
+  { q: "Kurulum ne kadar sürer?", a: "48 saat içinde kliniğiniz canlıya alınır. Kurulum tamamen bizim tarafımızdan yapılır." },
+  { q: "Sözleşme zorunluluğu var mı?", a: "Hayır. Bağlayıcı sözleşme yoktur, istediğiniz zaman iptal edebilirsiniz." },
+];
+
+const enFaqs = [
+  { q: "Which channels does it support?", a: "It automatically meets appointment requests via WhatsApp, phone, and website. Integrations with other platforms can be provided upon request." },
+  { q: "What happens if the bot gives a wrong answer?", a: "In ambiguous cases, the patient is transferred to your clinic's human staff. All conversations are recorded." },
+  { q: "How long does the setup take?", a: "Your clinic goes live within 48 hours. The setup is completely done by us." },
+  { q: "Is there a binding contract?", a: "No. There are no binding contracts, you can cancel whenever you want." },
 ];
 
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const orbitalData = lang === 'en' ? enOrbitalData : trOrbitalData;
+  const features = lang === 'en' ? enFeatures : trFeatures;
+  const stats = lang === 'en' ? enStats : trStats;
+  const faqs = lang === 'en' ? enFaqs : trFaqs;
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [formData, setFormData] = useState({ name: "", clinic: "", phone: "", city: "" });
@@ -437,25 +526,27 @@ Telefon: ${formData.phone || "-"}
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-sm text-green-400 mb-6">
                 <MessageCircle size={14} />
-                WhatsApp Randevu Botu
+                {lang === 'en' ? "WhatsApp Appointment Bot" : "WhatsApp Randevu Botu"}
               </div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight leading-tight">
-                Hastanız Yazar,
+                {lang === 'en' ? "Patient writes," : "Hastanız Yazar,"}
                 <br />
-                <span className="text-green-400">Bot Halleder</span>
+                <span className="text-green-400">
+                  {lang === 'en' ? "Bot handles it" : "Bot Halleder"}
+                </span>
               </h2>
               <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                WhatsApp Business API ile entegre botumuz, hastanızın mesajını anlar,
-                müsait saatleri kontrol eder ve onay mesajı gönderir.
-                Sekreteranızın telefona çıkmasına gerek kalmaz.
+                {lang === 'en'
+                  ? "Our bot, integrated with WhatsApp Business API, understands your patient's message, checks your availability, and sends a confirmation. Your secretary doesn't have to answer the phone."
+                  : "WhatsApp Business API ile entegre botumuz, hastanızın mesajını anlar, müsait saatleri kontrol eder ve onay mesajı gönderir. Sekreterinizin telefona çıkmasına gerek kalmaz."}
               </p>
 
               <div className="space-y-4 mb-8">
                 {[
-                  { icon: Clock, text: "Ortalama 8 saniyede randevu onayı" },
-                  { icon: Globe, text: "Türkçe doğal dil işleme (NLP)" },
-                  { icon: Shield, text: "WhatsApp Business API lisanslı" },
-                  { icon: Database, text: "Hasta geçmişi otomatik kayıt" },
+                  { icon: Clock, text: lang === 'en' ? "Avg 8 sec appointment confirmation" : "Ortalama 8 saniyede randevu onayı" },
+                  { icon: Globe, text: lang === 'en' ? "Natural language processing (NLP)" : "Türkçe doğal dil işleme (NLP)" },
+                  { icon: Shield, text: lang === 'en' ? "WhatsApp Business API Licensed" : "WhatsApp Business API lisanslı" },
+                  { icon: Database, text: lang === 'en' ? "Auto-record patient history" : "Hasta geçmişi otomatik kayıt" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
@@ -471,7 +562,7 @@ Telefon: ${formData.phone || "-"}
                 className="whatsapp-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold"
               >
                 <MessageCircle size={18} />
-                Ücretsiz Demo Al
+                {t('nav.getDemo')}
               </a>
             </div>
 
@@ -549,7 +640,7 @@ Telefon: ${formData.phone || "-"}
               <div className="glass-dark rounded-3xl p-5 border border-white/10 shadow-2xl max-w-sm mx-auto">
                 {/* Calendar header */}
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="font-bold text-base">Mart 2025</h4>
+                  <h4 className="font-bold text-base">{lang === 'en' ? "March 2025" : "Mart 2025"}</h4>
                   <div className="flex gap-2">
                     <div className="w-7 h-7 rounded-lg glass flex items-center justify-center cursor-pointer hover:bg-white/10">
                       <ChevronRight size={14} className="rotate-180" />
@@ -592,11 +683,13 @@ Telefon: ${formData.phone || "-"}
 
                 {/* Today's appointments */}
                 <div className="mt-5 space-y-2">
-                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider mb-3">Bugünkü Randevular</p>
+                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider mb-3">
+                    {lang === 'en' ? "Today's Appointments" : "Bugünkü Randevular"}
+                  </p>
                   {[
                     { time: "09:00", name: "Ahmet Y.", color: "bg-green-500" },
                     { time: "10:30", name: "Fatma K.", color: "bg-blue-500" },
-                    { time: "11:00", name: "Yeni Randevu", color: "bg-purple-500", isNew: true },
+                    { time: "11:00", name: lang === 'en' ? "New Booking" : "Yeni Randevu", color: "bg-purple-500", isNew: true },
                     { time: "14:00", name: "Mehmet A.", color: "bg-amber-500" },
                   ].map((apt) => (
                     <div key={apt.time} className={`flex items-center gap-3 p-2 rounded-lg glass ${apt.isNew ? "border border-purple-500/40 bg-purple-500/5" : ""}`}>
@@ -618,25 +711,27 @@ Telefon: ${formData.phone || "-"}
             <div className="order-1 md:order-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-sm text-blue-400 mb-6">
                 <Calendar size={14} />
-                Google Takvim Entegrasyonu
+                {lang === 'en' ? "Google Calendar Integration" : "Google Takvim Entegrasyonu"}
               </div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight leading-tight">
-                Takvim Artık
+                {lang === 'en' ? "Your calendar" : "Takvim Artık"}
                 <br />
-                <span className="text-blue-400">Kendisi Doluyor</span>
+                <span className="text-blue-400">
+                  {lang === 'en' ? "fills itself" : "Kendisi Doluyor"}
+                </span>
               </h2>
               <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                WhatsApp&apos;tan gelen her randevu, Google Takviminize anında yansır.
-                Doktorlarınız kendi Gmail hesabında randevuları görür,
-                çakışma riski sıfıra iner.
+                {lang === 'en'
+                  ? "Every appointment from WhatsApp is instantly reflected on your Google Calendar. Your doctors see appointments on their Gmail accounts, reducing clash risk to zero."
+                  : "WhatsApp'tan gelen her randevu, Google Takviminize anında yansır. Doktorlarınız kendi Gmail hesabında randevuları görür, çakışma riski sıfıra iner."}
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: RefreshCw, title: "İki Yönlü Sync", desc: "WA ↔ Calendar anlık güncelleme" },
-                  { icon: Users, title: "Çok Doktor", desc: "Her doktor kendi takviminde görür" },
-                  { icon: Bell, title: "Otomatik Hatırlatma", desc: "Hasta & doktora bildirim" },
-                  { icon: Database, title: "Arşiv", desc: "Tüm geçmiş randevular kayıtlı" },
+                  { icon: RefreshCw, title: lang === 'en' ? "Two-Way Sync" : "İki Yönlü Sync", desc: lang === 'en' ? "WA ↔ Calendar instant update" : "WA ↔ Calendar anlık güncelleme" },
+                  { icon: Users, title: lang === 'en' ? "Multi-Doctor" : "Çok Doktor", desc: lang === 'en' ? "Each doctor views their own" : "Her doktor kendi takviminde görür" },
+                  { icon: Bell, title: lang === 'en' ? "Auto Reminder" : "Otomatik Hatırlatma", desc: lang === 'en' ? "Patient & doctor alerts" : "Hasta & doktora bildirim" },
+                  { icon: Database, title: lang === 'en' ? "Archive" : "Arşiv", desc: lang === 'en' ? "All past appointments saved" : "Tüm geçmiş randevular kayıtlı" },
                 ].map((item) => (
                   <div key={item.title} className="glass rounded-xl p-4 border border-white/5">
                     <item.icon size={18} className="text-blue-400 mb-2" />
@@ -657,14 +752,14 @@ Telefon: ${formData.phone || "-"}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-5">
               <Bot size={14} />
-              Nasıl Çalışır?
+              {lang === 'en' ? "How It Works?" : "Nasıl Çalışır?"}
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-5 tracking-tight">
-              Radent&apos;in{" "}
-              <span className="gradient-text">Otomasyonu</span>
+              {lang === 'en' ? "Radent's" : "Radent'in"}{" "}
+              <span className="gradient-text">{lang === 'en' ? "Automation" : "Otomasyonu"}</span>
             </h2>
             <p className="text-white/50 text-lg max-w-xl mx-auto">
-              Birbirine bağlı tüm sistemlerimizi keşfetmek için orbital haritaya tıklayın.
+              {lang === 'en' ? "Click the orbital map to discover our interconnected systems." : "Birbirine bağlı tüm sistemlerimizi keşfetmek için orbital haritaya tıklayın."}
             </p>
           </div>
 
@@ -683,47 +778,48 @@ Telefon: ${formData.phone || "-"}
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-6">
             <ArrowRight size={14} />
-            Hemen Başlayın
+            {lang === 'en' ? "Get Started Now" : "Hemen Başlayın"}
           </div>
 
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
-            Kliniğinizi{" "}
-            <span className="gradient-text">48 Saatte</span>
+            {lang === 'en' ? "Transform Your Clinic" : "Kliniğinizi"}{" "}
+            <span className="gradient-text">{lang === 'en' ? "in 48 Hours" : "48 Saatte"}</span>
             <br />
-            Dönüştürün
+            {lang === 'en' ? "" : "Dönüştürün"}
           </h2>
 
           <p className="text-white/60 text-lg mb-10 leading-relaxed">
-            Ücretsiz demo isteyin. Uzmanlarımız kliniğinize özel bir demo
-            hazırlayıp WhatsApp üzerinden sunsun.
+            {lang === 'en'
+              ? "Request a free demo. Let our experts prepare a custom demo for your clinic and present it via WhatsApp."
+              : "Ücretsiz demo isteyin. Uzmanlarımız kliniğinize özel bir demo hazırlayıp WhatsApp üzerinden sunsun."}
           </p>
 
           <div className="glass rounded-2xl p-8 border border-white/10 mb-8">
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               <input
                 type="text"
-                placeholder="Adınız"
+                placeholder={lang === 'en' ? "Your Name" : "Adınız"}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="text"
-                placeholder="Klinik Adı"
+                placeholder={lang === 'en' ? "Clinic Name" : "Klinik Adı"}
                 value={formData.clinic}
                 onChange={(e) => setFormData({ ...formData, clinic: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="tel"
-                placeholder="WhatsApp Numaranız"
+                placeholder={lang === 'en' ? "WhatsApp Number" : "WhatsApp Numaranız"}
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
               />
               <input
                 type="text"
-                placeholder="Şehir"
+                placeholder={lang === 'en' ? "City" : "Şehir"}
                 value={formData.city}
                 onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/50 transition-colors"
@@ -734,17 +830,17 @@ Telefon: ${formData.phone || "-"}
               className="w-full whatsapp-btn flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-white font-semibold text-lg transition-transform active:scale-[0.98]"
             >
               <MessageCircle size={22} />
-              WhatsApp'tan Demo Talep Et
+              {lang === 'en' ? "Request Demo via WhatsApp" : "WhatsApp'tan Demo Talep Et"}
             </button>
             <p className="text-center text-white/60 text-sm mt-5">
-              Ya da sağ alttaki AI asistanımızla hemen konuşun 👇
+              {lang === 'en' ? "Or chat with our AI assistant in the bottom right 👇" : "Ya da sağ alttaki AI asistanımızla hemen konuşun 👇"}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/40">
-            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> Ücretsiz kurulum</span>
-            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> Bağlayıcı sözleşme yok</span>
-            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> 48 saat canlı</span>
+            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> {lang === 'en' ? "Free setup" : "Ücretsiz kurulum"}</span>
+            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> {lang === 'en' ? "No binding contract" : "Bağlayıcı sözleşme yok"}</span>
+            <span className="flex items-center gap-1.5"><CheckCircle size={14} className="text-green-400" /> {lang === 'en' ? "Live in 48 hours" : "48 saat canlı"}</span>
           </div>
         </div>
       </section>
@@ -755,7 +851,8 @@ Telefon: ${formData.phone || "-"}
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black mb-5 tracking-tight">
-              Sıkça Sorulan <span className="gradient-text">Sorular</span>
+              {lang === 'en' ? "Frequently Asked" : "Sıkça Sorulan"}{" "}
+              <span className="gradient-text">{lang === 'en' ? "Questions" : "Sorular"}</span>
             </h2>
           </div>
           
@@ -799,8 +896,9 @@ Telefon: ${formData.phone || "-"}
                 <span className="text-xl font-bold">Rad<span className="gradient-text">ent</span></span>
               </div>
               <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-                Diş kliniklerine özel yapay zeka asistanı ve otomasyon çözümleri.
-                Türkiye&apos;nin en akıllı klinik yönetim platformu.
+                {lang === 'en'
+                  ? "AI assistant and automation solutions exclusively for dental clinics. Turkey's smartest clinic management platform."
+                  : "Diş kliniklerine özel yapay zeka asistanı ve otomasyon çözümleri. Türkiye'nin en akıllı klinik yönetim platformu."}
               </p>
               <div className="flex items-center gap-3 mt-5">
                 <a href="mailto:demo@radentai.co" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
@@ -811,22 +909,27 @@ Telefon: ${formData.phone || "-"}
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-4">Ürün</h4>
+              <h4 className="font-semibold text-sm mb-4">{lang === 'en' ? "Product" : "Ürün"}</h4>
               <ul className="space-y-2 text-sm text-white/40">
-                {["WhatsApp Botu", "Google Takvim", "Tam Otomasyon", "Analitik Panel"].map((item) => (
+                {[
+                  lang === 'en' ? "WhatsApp Bot" : "WhatsApp Botu",
+                  lang === 'en' ? "Google Calendar" : "Google Takvim",
+                  lang === 'en' ? "Full Automation" : "Tam Otomasyon",
+                  lang === 'en' ? "Analytics Dashboard" : "Analitik Panel"
+                ].map((item) => (
                   <li key={item}><a href="#" className="hover:text-white/70 transition-colors">{item}</a></li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-4">Şirket</h4>
+              <h4 className="font-semibold text-sm mb-4">{lang === 'en' ? "Company" : "Şirket"}</h4>
               <ul className="space-y-2 text-sm text-white/40">
-                <li><a href="/about" className="hover:text-white/70 transition-colors">Hakkımızda</a></li>
+                <li><a href="/about" className="hover:text-white/70 transition-colors">{lang === 'en' ? "About Us" : "Hakkımızda"}</a></li>
                 {[
                   { name: "Blog", href: "/blog" },
-                  { name: "Kariyer", href: "/kariyer" },
-                  { name: "Gizlilik Politikası", href: "/gizlilik" }
+                  { name: lang === 'en' ? "Careers" : "Kariyer", href: "/kariyer" },
+                  { name: lang === 'en' ? "Privacy Policy" : "Gizlilik Politikası", href: "/gizlilik" }
                 ].map((item) => (
                   <li key={item.name}><a href={item.href} className="hover:text-white/70 transition-colors">{item.name}</a></li>
                 ))}
