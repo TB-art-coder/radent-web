@@ -28,7 +28,7 @@ export const en = {
   // Hero
   "hero.title1": "Grow Your Clinic with",
   "hero.titleHighlight": "Artificial Intelligence",
-  "hero.title2": "",
+  "hero.title2": " ",
   "hero.subtitle": "With WhatsApp appointment bots, Google Calendar integration, and full automation workflows, your clinic runs 24/7. Reduce staff costs and increase patient satisfaction.",
   "hero.whatsappBtn": "Request WhatsApp Demo",
 
