@@ -1,3 +1,4 @@
+// Background elements and imports
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,7 +8,7 @@ import ChatWidget from "@/components/ChatWidget";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
 
-const blogPosts = [
+const trBlogPosts = [
   {
     id: 1,
     slug: "randevu-kaybi",
@@ -60,9 +61,63 @@ const blogPosts = [
   }
 ];
 
+const enBlogPosts = [
+  {
+    id: 1,
+    slug: "randevu-kaybi",
+    title: "5 Reasons for Patient No-Shows in Dental Clinics and Solutions",
+    excerpt: "Patients missing their appointments is one of the biggest problems for clinics. Discover how to minimize this loss with automatic reminders and easy cancellation/rescheduling options.",
+    date: "March 2025",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
+    category: "Management"
+  },
+  {
+    id: 2,
+    slug: "whatsapp-randevu",
+    title: "Benefits of Taking Appointments via WhatsApp for Your Clinic",
+    excerpt: "80% of your patients prefer messaging instead of calling. The advantages of creating an appointment in seconds without waiting for confirmation, thanks to WhatsApp integration.",
+    date: "March 2025",
+    readTime: "3 min read",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
+    category: "Communication"
+  },
+  {
+    id: 3,
+    slug: "7-24-klinik",
+    title: "What Does a 24/7 Operating Clinic Look Like?",
+    excerpt: "Providing service to your patients even outside working hours is no longer a dream. Keep the doors of your clinic open digitally with AI-powered assistants.",
+    date: "March 2025",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop",
+    category: "Automation"
+  },
+  {
+    id: 4,
+    slug: "dijital-donusum",
+    title: "Digital Transformation in Dental Clinics: Where to Start?",
+    excerpt: "The transition from traditional methods to digital systems can be daunting. However, with the right planning and technology choice, you can make this transformation smooth.",
+    date: "March 2025",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+    category: "Technology"
+  },
+  {
+    id: 5,
+    slug: "yapay-zeka-sekreter",
+    title: "AI Secretary vs. Human Secretary?",
+    excerpt: "Will artificial intelligence assistants replace humans, or will they make their jobs easier? We compared the strengths and weaknesses of the two different approaches for your clinic.",
+    date: "March 2025",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=800&auto=format&fit=crop",
+    category: "Artificial Intelligence"
+  }
+];
+
 export default function BlogPage() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
+  const blogPosts = lang === 'en' ? enBlogPosts : trBlogPosts;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -119,13 +174,15 @@ export default function BlogPage() {
           <div className="text-center mb-16 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-6">
               <Sparkles size={14} />
-              Gelişmeler ve İpuçları
+              {lang === 'en' ? "Developments and Tips" : "Gelişmeler ve İpuçları"}
             </div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-6">
               Radent <span className="gradient-text">Blog</span>
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Diş kliniklerini geleceğe taşıyan yapay zeka çözümleri, otomasyon sistemleri ve büyüme stratejileri hakkında en güncel yazılar.
+              {lang === 'en'
+                ? "The most recent articles about artificial intelligence solutions, automation systems, and growth strategies that transport dental clinics into the future."
+                : "Diş kliniklerini geleceğe taşıyan yapay zeka çözümleri, otomasyon sistemleri ve büyüme stratejileri hakkında en güncel yazılar."}
             </p>
           </div>
 
@@ -173,7 +230,7 @@ export default function BlogPage() {
                   </p>
                   
                   <div className="flex items-center text-sm font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
-                    Devamını Oku 
+                    {lang === 'en' ? "Read More" : "Devamını Oku"} 
                     <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -188,16 +245,20 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="glass-dark rounded-3xl p-10 border border-purple-500/30 text-center relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-purple-600/10 blur-2xl pointer-events-none" />
-            <h2 className="text-3xl font-bold mb-4">Yeni yazıları ilk siz okuyun</h2>
-            <p className="text-white/60 mb-6">En güncel ipuçları ve sektörel gelişmeler mail kutunuza gelsin.</p>
+            <h2 className="text-3xl font-bold mb-4">
+              {lang === 'en' ? "Be the first to read new articles" : "Yeni yazıları ilk siz okuyun"}
+            </h2>
+            <p className="text-white/60 mb-6">
+              {lang === 'en' ? "Get the latest tips and industry developments delivered to your inbox." : "En güncel ipuçları ve sektörel gelişmeler mail kutunuza gelsin."}
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
-                placeholder="E-posta adresiniz" 
+                placeholder={lang === 'en' ? "Your email address" : "E-posta adresiniz"} 
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm flex-1 focus:outline-none focus:border-purple-500/50"
               />
               <button className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-medium transition-colors">
-                Abone Ol
+                {lang === 'en' ? "Subscribe" : "Abone Ol"}
               </button>
             </div>
           </div>
@@ -216,9 +277,9 @@ export default function BlogPage() {
             </Link>
             
             <div className="flex items-center gap-6 text-sm text-white/50">
-              <Link href="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
-              <Link href="/about" className="hover:text-white transition-colors">Hakkımızda</Link>
-              <Link href="/blog" className="text-white font-medium">Blog</Link>
+              <Link href="/" className="hover:text-white transition-colors">{t('nav.home')}</Link>
+              <Link href="/about" className="hover:text-white transition-colors">{t('nav.about')}</Link>
+              <Link href="/blog" className="text-white font-medium">{t('nav.blog')}</Link>
             </div>
             
             <div className="text-xs text-white/30 flex flex-col sm:flex-row items-center gap-4">

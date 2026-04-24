@@ -6,7 +6,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* ── Navbar ── */}
@@ -43,10 +43,11 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-5 animate-fade-in-up">
               <Users size={14} />
-              Hakkımızda
+              {lang === 'en' ? "About Us" : "Hakkımızda"}
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Biz <span className="gradient-text">Kimiz?</span>
+              {lang === 'en' ? "Who " : "Biz "}
+              <span className="gradient-text">{lang === 'en' ? "Are We?" : "Kimiz?"}</span>
             </h1>
           </div>
 
@@ -58,7 +59,9 @@ export default function AboutPage() {
                 Radent AI
               </h2>
               <p className="text-white/70 text-lg leading-relaxed">
-                Radent AI, diş kliniklerinin dijital dönüşümünü hızlandırmak için kurulmuş bir yapay zeka ve otomasyon şirketidir. Türkiye'nin ilk diş kliniği odaklı AI platformu olarak, kliniklerin 7/24 kesintisiz çalışmasını sağlıyoruz.
+                {lang === 'en'
+                  ? "Radent AI is an artificial intelligence and automation company established to accelerate the digital transformation of dental clinics. As Turkey's first dental clinic focused AI platform, we enable clinics to run 24/7 without interruptions."
+                  : "Radent AI, diş kliniklerinin dijital dönüşümünü hızlandırmak için kurulmuş bir yapay zeka ve otomasyon şirketidir. Türkiye'nin ilk diş kliniği odaklı AI platformu olarak, kliniklerin 7/24 kesintisiz çalışmasını sağlıyoruz."}
               </p>
             </section>
 
@@ -67,10 +70,12 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <Target className="text-blue-400" />
-                Misyonumuz
+                {lang === 'en' ? "Our Mission" : "Misyonumuz"}
               </h2>
               <p className="text-white/70 text-lg leading-relaxed">
-                Güncellenen dünyada güncellenmesi gereken alanları tespit edip onları modern teknolojiye entegre etmek. Diş kliniklerinin yapay zeka gücüyle büyümesini sağlamak.
+                {lang === 'en'
+                  ? "Identifying areas that need updating in an updating world and integrating them with modern technology. Ensuring dental clinics grow with the power of artificial intelligence."
+                  : "Güncellenen dünyada güncellenmesi gereken alanları tespit edip onları modern teknolojiye entegre etmek. Diş kliniklerinin yapay zeka gücüyle büyümesini sağlamak."}
               </p>
             </section>
 
@@ -79,15 +84,23 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <Shield className="text-teal-400" />
-                Neden Radent AI?
+                {lang === 'en' ? "Why Radent AI?" : "Neden Radent AI?"}
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  "Diş kliniklerine özel, sektörü anlayan bir ekip",
-                  "48 saat içinde kurulum",
-                  "7/24 teknik destek",
-                  "KVKK uyumlu altyapı"
-                ].map((item, i) => (
+                {(lang === 'en'
+                  ? [
+                      "Team specialized in dental clinics",
+                      "Setup within 48 hours",
+                      "24/7 technical support",
+                      "GDPR & HIPAA compliant infrastructure"
+                    ]
+                  : [
+                      "Diş kliniklerine özel, sektörü anlayan bir ekip",
+                      "48 saat içinde kurulum",
+                      "7/24 teknik destek",
+                      "KVKK uyumlu altyapı"
+                    ]
+                ).map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/5">
                     <CheckCircle className="text-green-400 shrink-0 mt-0.5" size={20} />
                     <span className="text-white/80">{item}</span>
