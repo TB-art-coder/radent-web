@@ -1,8 +1,11 @@
 import { Sparkles, MessageCircle, Briefcase, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import ChatWidget from "@/components/ChatWidget";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function KariyerPage() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* ── Navbar ── */}
@@ -18,18 +21,21 @@ export default function KariyerPage() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-            <Link href="/#features" className="hover:text-white transition-colors">Özellikler</Link>
-            <Link href="/#how-it-works" className="hover:text-white transition-colors">Nasıl Çalışır</Link>
-            <Link href="/#contact" className="hover:text-white transition-colors">İletişim</Link>
+            <Link href="/#features" className="hover:text-white transition-colors">{t('nav.features')}</Link>
+            <Link href="/#how-it-works" className="hover:text-white transition-colors">{t('nav.howItWorks')}</Link>
+            <Link href="/#contact" className="hover:text-white transition-colors">{t('nav.contact')}</Link>
           </div>
 
-          <Link
-            href="/#contact"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
-          >
-            <MessageCircle size={14} />
-            Demo Al
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link
+              href="/#contact"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
+            >
+              <MessageCircle size={14} />
+              {t('nav.getDemo')}
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -118,8 +124,8 @@ export default function KariyerPage() {
           </div>
 
           <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-            <span>© 2026 Radent AI. Tüm hakları saklıdır.</span>
-            <span>Türkiye'de geliştirildi 🇹🇷</span>
+            <span>{t('footer.copyright')}</span>
+            <span>{t('footer.developedIn')}</span>
           </div>
         </div>
       </footer>

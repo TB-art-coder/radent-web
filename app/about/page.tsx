@@ -1,7 +1,10 @@
 import { ArrowLeft, Sparkles, CheckCircle, Target, Users, Shield } from "lucide-react";
 import Link from "next/link";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* ── Navbar ── */}
@@ -16,13 +19,16 @@ export default function AboutPage() {
             </span>
           </Link>
 
-          <Link
-            href="/"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium"
-          >
-            <ArrowLeft size={16} />
-            Ana Sayfaya Dön
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link
+              href="/"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium"
+            >
+              <ArrowLeft size={16} />
+              {t("nav.home")}
+            </Link>
+          </div>
         </div>
       </nav>
 

@@ -27,6 +27,8 @@ import {
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import ChatWidget from "@/components/ChatWidget";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ── Orbital Timeline Data ─────────────────────────────────────────────────────
 const orbitalData = [
@@ -215,6 +217,7 @@ const faqs = [
 
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function HomePage() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [formData, setFormData] = useState({ name: "", clinic: "", phone: "", city: "" });
@@ -271,18 +274,21 @@ Telefon: ${formData.phone || "-"}
           </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-            <a href="#features" className="hover:text-white transition-colors">Özellikler</a>
-            <a href="#how-it-works" className="hover:text-white transition-colors">Nasıl Çalışır</a>
-            <a href="#contact" className="hover:text-white transition-colors">İletişim</a>
+            <a href="#features" className="hover:text-white transition-colors">{t('nav.features')}</a>
+            <a href="#how-it-works" className="hover:text-white transition-colors">{t('nav.howItWorks')}</a>
+            <a href="#contact" className="hover:text-white transition-colors">{t('nav.contact')}</a>
           </div>
 
-          <a
-            href="#contact"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
-          >
-            <MessageCircle size={14} />
-            Demo Al
-          </a>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <a
+              href="#contact"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
+            >
+              <MessageCircle size={14} />
+              {t('nav.getDemo')}
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -830,8 +836,8 @@ Telefon: ${formData.phone || "-"}
           </div>
 
           <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-            <span>© 2026 Radent AI. Tüm hakları saklıdır.</span>
-            <span>Türkiye&apos;de geliştirildi 🇹🇷</span>
+            <span>{t('footer.copyright')}</span>
+            <span>{t('footer.developedIn')}</span>
           </div>
         </div>
       </footer>

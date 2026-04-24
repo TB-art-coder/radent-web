@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Sparkles, MessageCircle, ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import ChatWidget from "@/components/ChatWidget";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 const blogPosts = [
   {
@@ -59,6 +61,7 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -93,18 +96,21 @@ export default function BlogPage() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-            <Link href="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
-            <Link href="/about" className="hover:text-white transition-colors">Hakkımızda</Link>
-            <Link href="/blog" className="text-white font-medium transition-colors">Blog</Link>
+            <Link href="/" className="hover:text-white transition-colors">{t('nav.home')}</Link>
+            <Link href="/about" className="hover:text-white transition-colors">{t('nav.about')}</Link>
+            <Link href="/blog" className="text-white font-medium transition-colors">{t('nav.blog')}</Link>
           </div>
 
-          <Link
-            href="/#contact"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
-          >
-            <MessageCircle size={14} />
-            Demo Al
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link
+              href="/#contact"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-all text-sm font-medium"
+            >
+              <MessageCircle size={14} />
+              {t('nav.getDemo')}
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -215,8 +221,9 @@ export default function BlogPage() {
               <Link href="/blog" className="text-white font-medium">Blog</Link>
             </div>
             
-            <div className="text-xs text-white/30">
-              © 2025 Radent AI. Tüm hakları saklıdır.
+            <div className="text-xs text-white/30 flex flex-col sm:flex-row items-center gap-4">
+              <span>{t('footer.copyright')}</span>
+              <span>{t('footer.developedIn')}</span>
             </div>
           </div>
         </div>
