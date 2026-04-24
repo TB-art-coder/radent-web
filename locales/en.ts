@@ -24,4 +24,17 @@ export const en = {
   // Language
   "lang.tr": "Türkçe",
   "lang.en": "English",
+
+  // Hero
+  "hero.title1": "Grow Your Clinic with",
+  "hero.titleHighlight": "Artificial Intelligence",
+  "hero.title2": "",
+  "hero.subtitle": "With WhatsApp appointment bots, Google Calendar integration, and full automation workflows, your clinic runs 24/7. Reduce staff costs and increase patient satisfaction.",
+  "hero.whatsappBtn": "Request WhatsApp Demo",
+
+  // Features
+  "features.badge": "Powerful Features",
+  "features.title1": "Everything Your Clinic",
+  "features.titleHighlight": "Needs",
+  "features.subtitle": "Automate all your processes, from appointment management to patient communication.",
 };

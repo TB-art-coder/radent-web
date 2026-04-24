@@ -24,4 +24,17 @@ export const tr = {
   // Language
   "lang.tr": "Türkçe",
   "lang.en": "English",
+
+  // Hero
+  "hero.title1": "Kliniğinizi",
+  "hero.titleHighlight": "Yapay Zeka",
+  "hero.title2": "ile Büyütün",
+  "hero.subtitle": "WhatsApp randevu botu, Google Takvim entegrasyonu ve tam otomasyon akışlarıyla kliniğiniz 7/24 çalışır. Personel maliyetinizi düşürün, hasta memnuniyetini artırın.",
+  "hero.whatsappBtn": "WhatsApp Demo İste",
+
+  // Features
+  "features.badge": "Güçlü Özellikler",
+  "features.title1": "Kliniğinizin İhtiyacı Olan",
+  "features.titleHighlight": "Her Şey",
+  "features.subtitle": "Randevu yönetiminden hasta iletişimine kadar tüm süreçlerinizi otomatize edin.",
 };

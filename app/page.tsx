@@ -319,15 +319,14 @@ Telefon: ${formData.phone || "-"}
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            Kliniğinizi{" "}
-            <span className="gradient-text">Yapay Zeka</span>
+            {t('hero.title1')}{" "}
+            <span className="gradient-text">{t('hero.titleHighlight')}</span>
             <br />
-            ile Büyütün
+            {t('hero.title2')}
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            WhatsApp randevu botu, Google Takvim entegrasyonu ve tam otomasyon akışlarıyla
-            kliniğiniz 7/24 çalışır. Personel maliyetinizi düşürün, hasta memnuniyetini artırın.
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
@@ -336,13 +335,13 @@ Telefon: ${formData.phone || "-"}
               className="whatsapp-btn flex items-center gap-3 px-8 py-4 rounded-xl text-white font-semibold text-lg shadow-2xl"
             >
               <MessageCircle size={22} />
-              WhatsApp Demo İste
+              {t('hero.whatsappBtn')}
             </a>
             <a
               href="#how-it-works"
               className="flex items-center gap-2 px-8 py-4 rounded-xl glass border border-white/10 hover:border-white/20 transition-all font-semibold"
             >
-              Nasıl Çalışır
+              {t('nav.howItWorks')}
               <ChevronRight size={18} />
             </a>
           </div>
@@ -387,14 +386,14 @@ Telefon: ${formData.phone || "-"}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-5">
               <Zap size={14} />
-              Güçlü Özellikler
+              {t('features.badge')}
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-5 tracking-tight">
-              Kliniğinizin İhtiyacı Olan{" "}
-              <span className="gradient-text">Her Şey</span>
+              {t('features.title1')}{" "}
+              <span className="gradient-text">{t('features.titleHighlight')}</span>
             </h2>
             <p className="text-white/50 text-lg max-w-xl mx-auto">
-              Randevu yönetiminden hasta iletişimine kadar tüm süreçlerinizi otomatize edin.
+              {t('features.subtitle')}
             </p>
           </div>
 
