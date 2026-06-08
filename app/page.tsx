@@ -274,15 +274,17 @@ const enFeatures = [
 
 // ── Stats ────────────────────────────────────────────────────────────────────
 const trStats = [
-  { value: "%94", label: "Randevu Doluluk Oranı", icon: TrendingUp },
-  { value: "7/24", label: "Kesintisiz Hizmet", icon: Clock },
-  { value: "48s", label: "Kurulum Süresi", icon: Zap },
+  { value: "8 sn", label: "Ortalama randevu onayı", icon: Clock },
+  { value: "7/24", label: "Kesintisiz hizmet", icon: Clock },
+  { value: "50+ dil", label: "Sağlık turizmi hazır", icon: Globe },
+  { value: "48 saat", label: "Kuruluma hazır", icon: Zap },
 ];
 
 const enStats = [
-  { value: "94%", label: "Appointment Fill Rate", icon: TrendingUp },
-  { value: "24/7", label: "Continuous Service", icon: Clock },
-  { value: "48h", label: "Setup Time", icon: Zap },
+  { value: "8 sec", label: "Avg appointment confirmation", icon: Clock },
+  { value: "24/7", label: "Uninterrupted service", icon: Clock },
+  { value: "50+ lang", label: "Health tourism ready", icon: Globe },
+  { value: "48 hours", label: "Ready to deploy", icon: Zap },
 ];
 
 const trFaqs = [

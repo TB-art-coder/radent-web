@@ -26,11 +26,11 @@ export const tr = {
   "lang.en": "English",
 
   // Hero
-  "hero.title1": "Kliniğinizi",
-  "hero.titleHighlight": "Yapay Zeka",
-  "hero.title2": "ile Büyütün",
-  "hero.subtitle": "WhatsApp randevu botu, Google Takvim entegrasyonu ve tam otomasyon akışlarıyla kliniğiniz 7/24 çalışır. Personel maliyetinizi düşürün, hasta memnuniyetini artırın.",
-  "hero.whatsappBtn": "WhatsApp Demo İste",
+  "hero.title1": "Hiçbir hasta",
+  "hero.titleHighlight": "mesajı",
+  "hero.title2": "cevapsız kalmasın",
+  "hero.subtitle": "WhatsApp, telefon ve web'den gelen randevu taleplerini kliniğiniz adına 7/24 anında karşılayan yapay zeka asistanı. Mesai dışında bile hasta kaçırmayın, takviminiz kendiliğinden dolsun.",
+  "hero.whatsappBtn": "WhatsApp'ta hemen dene",
 
   // Features
   "features.badge": "Güçlü Özellikler",
