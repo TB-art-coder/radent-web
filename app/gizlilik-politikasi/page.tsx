@@ -187,7 +187,9 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/5 sm:col-span-2">
                   <MapPin className="text-teal-400 shrink-0" size={20} />
-                  <span className="text-white/80 text-sm">İstanbul, Türkiye</span>
+                  <span className="text-white/80 text-sm">
+                    {lang === 'en' ? "Ankara, Turkey" : "Ankara, Türkiye"}
+                  </span>
                 </div>
               </div>
             </section>
