@@ -139,7 +139,7 @@ export default function KariyerPage() {
                 {[
                   { name: "Blog", href: "/blog" },
                   { name: lang === 'en' ? "Careers" : "Kariyer", href: "/kariyer" },
-                  { name: lang === 'en' ? "Privacy Policy" : "Gizlilik Politikası", href: "/gizlilik" }
+                  { name: lang === 'en' ? "Privacy Policy" : "Gizlilik Politikası", href: "/gizlilik-politikasi" }
                 ].map((item) => (
                   <li key={item.name}><Link href={item.href} className="hover:text-white/70 transition-colors">{item.name}</Link></li>
                 ))}
