@@ -56,6 +56,11 @@ const renderMessage = (text: string) => {
             key={i}
             href="mailto:demo@radentai.co"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mt-2 transition-colors"
+            onClick={() => {
+              if (typeof window !== "undefined" && (window as any).fbq) {
+                (window as any).fbq("track", "Lead");
+              }
+            }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />

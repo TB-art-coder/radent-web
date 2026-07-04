@@ -903,7 +903,15 @@ Telefon: ${formData.phone || "-"}
                   : "Diş kliniklerine özel yapay zeka asistanı ve otomasyon çözümleri. Türkiye'nin en akıllı klinik yönetim platformu."}
               </p>
               <div className="flex items-center gap-3 mt-5">
-                <a href="mailto:demo@radentai.co" className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors">
+                <a
+                  href="mailto:demo@radentai.co"
+                  className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && (window as any).fbq) {
+                      (window as any).fbq("track", "Lead");
+                    }
+                  }}
+                >
                   <Mail size={14} />
                   demo@radentai.co
                 </a>
